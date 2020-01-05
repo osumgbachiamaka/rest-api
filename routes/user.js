@@ -3,6 +3,6 @@ const userCtrl = require('../controllers/userCtrl')
 
 const route = express.Router();
 
-route.get('/create/', userCtrl);
+route.get('/create/', userCtrl.createUser);
 
 module.exports = route;
