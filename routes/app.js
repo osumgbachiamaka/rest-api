@@ -17,7 +17,7 @@ app.use((req, res, next) => {
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-// app.use('/v1/api/user', userRoute);
-// app.use('/v1/api/admin', adminRoute);
+app.use('/v1/api/user', userRoute);
+app.use('/v1/api/admin', adminRoute);
 
 module.exports = app;
