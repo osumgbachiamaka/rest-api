@@ -7,24 +7,25 @@ exports.createUser = (req, res) => {
 }
 
 exports.getUser = (req, res) => {
-    pool.query('SELECT * FROM user ORDER BY id ASC', (error, value) => {
+    db.query('SELECT * FROM users ORDER BY id ASC', (error, value) => {
         if (error) {
             throw error;
         }
         res.status(201).json(
-            value.rows,
+            value.rows
         );
     });
 };
 
 exports.getAUserById = (req, res) => {
-    const id = parseInt(req.params.id, 4);
-    pool.query('SELECT * FROM user WHERE id = $1', [id], (error, value) => {
+    const id = parseInt(req.params.id);
+    console.log(id);
+    db.query('SELECT * FROM users WHERE ID = $1', [id], (error, value) => {
         if (error) {
             throw error;
         }
         res.status(201).json(
-            value
+            value.rows
         );
     });
 };
