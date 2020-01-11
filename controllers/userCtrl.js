@@ -16,3 +16,15 @@ exports.getUser = (req, res) => {
         );
     });
 };
+
+exports.getAUserById = (req, res) => {
+    const id = parseInt(req.params.id, 4);
+    pool.query('SELECT * FROM user WHERE id = $1', [id], (error, value) => {
+        if (error) {
+            throw error;
+        }
+        res.status(201).json(
+            value
+        );
+    });
+};
