@@ -7,7 +7,7 @@ exports.createUser = (req, res) => {
 }
 
 exports.getUser = (req, res) => {
-    pool.query('SELECT * FROM user ORDER BY id ASC', (error, value) => {
+    db.query('SELECT * FROM user ORDER BY id ASC', (error, value) => {
         if (error) {
             throw error;
         }
@@ -28,3 +28,7 @@ exports.getAUserById = (req, res) => {
         );
     });
 };
+
+exports.sum = (a, b) => {
+  return a + b
+}
